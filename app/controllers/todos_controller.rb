@@ -24,9 +24,8 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
-  #  @todo = Todo.new(params[:todo])
-  Todo.create(todo_params)
-  @todos = Todo.all
+    #  @todo = Todo.new(params[:todo])
+    @todo = Todo.create(todo_params)
   end
 
   # PATCH/PUT /todos/1
@@ -46,11 +45,13 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
+    @todo = Todo.find(params[:id])
     @todo.destroy
-    respond_to do |format|
-      format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
+    #   format.json { head :no_content }
+    #   format.js
+    # end
   end
 
   private

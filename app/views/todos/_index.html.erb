@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Listing Todos</h1>          
-  <table class="table table-striped">
+  <table class="table table-striped" >
   <thead>
     <tr>
       <th>Title</th>
@@ -9,15 +9,15 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="my_table">
     <% todos.each do |todo| %>
-      <tr>
+      <tr id = "<%= todo.id %>">
         <td><%= todo.title %></td>
         <td><%= todo.notes %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Destroy', todo, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete Coffee', '#', data: {todo_id: todo.id}, class: 'destroy-link' %></td>
     <% end %>
   </tbody>
 </table>
