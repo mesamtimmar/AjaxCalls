@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="tasks"><%= render 'index', todos: @todos %></div>
+</div>
+
+
+<!-- <%= render 'index', todos: @todos %>
+-->
+
+
+<div class="col-md-2 col-md-offset-4">
+  <%= link_to new_todo_path, remote: true do%>
+    <button class="btn btn-default">New</button>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="task-form" style="display:none;"></div>
+</div>
+
+
+
+
+</div>
+<br>
+
+
